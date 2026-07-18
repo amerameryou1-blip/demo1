@@ -1,0 +1,6 @@
+{
+  "name": "Green Journey",
+  "description": "Premium aviation loyalty platform where passenger scan digital passes, track carbon reduction, unlock eco challenges, and redeem points for VIP airline rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Air
+import androidx.compose.material.icons.filled.Autorenew
 import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Email
@@ -17,7 +18,6 @@ import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.FlightTakeoff
 import androidx.compose.material.icons.filled.LocalDrink
 import androidx.compose.material.icons.filled.Place
-import androidx.compose.material.icons.filled.Recycling
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Verified
@@ -121,7 +121,7 @@ fun ProfileScreen(state: AppState) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 ImpactTile(Icons.Default.Air, "%.1f".format(state.stats.co2SavedKg), "kg CO\u2082 saved", Color(0xFF67E8F9), Modifier.weight(1f))
                 ImpactTile(Icons.Default.LocalDrink, state.stats.waterSavedLiters.toString(), "L water saved", Sky, Modifier.weight(1f))
-                ImpactTile(Icons.Default.Recycling, state.stats.plasticAvoidedCount.toString(), "Items avoided", Mint, Modifier.weight(1f))
+                ImpactTile(Icons.Default.Autorenew, state.stats.plasticAvoidedCount.toString(), "Items avoided", Mint, Modifier.weight(1f))
             }
         }
 

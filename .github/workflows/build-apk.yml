@@ -36,7 +36,19 @@ jobs:
 
       - name: Build Debug APK
         working-directory: greenjourney-android
-        run: ./gradlew assembleDebug --stacktrace --no-daemon
+        run: |
+          set -o pipefail
+          set +e
+          ./gradlew assembleDebug --stacktrace --no-daemon 2>&1 | tee build_log.txt
+          CODE=${PIPESTATUS[0]}
+          if [ $CODE -ne 0 ]; then
+            echo ""
+            echo "==================== FAILURE CONTEXT (exact cause) ===================="
+            grep -nE "e: file:///" -m 15 build_log.txt || true
+            grep -n -B 2 -A 18 "What went wrong" build_log.txt || true
+            echo "====================================================================="
+          fi
+          exit $CODE
 
       - name: Rename APK
         run: cp "greenjourney-android/app/build/outputs/apk/debug/app-debug.apk" "greenjourney.apk"
